@@ -151,6 +151,17 @@ module.exports = {
     'tabs.show-tab-previews': true,
     'tabs.preview-timing': 1000,
     'tabs.show-dashboard-images': true,
+    'tabs.named-session-tabs': {
+      1: '',
+      2: '',
+      3: '',
+      4: '',
+      5: '',
+      6: '',
+      7: '',
+      8: '',
+      9: ''
+    },
     'privacy.history-suggestions': true,
     'privacy.bookmark-suggestions': true,
     'privacy.topsite-suggestions': true,

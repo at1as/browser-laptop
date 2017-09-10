@@ -32,6 +32,17 @@ const ensureAtLeastOneWindow = (frameOpts = {}) => {
 }
 
 /**
+  * Returns name of session tab from index.
+  * @param {Integer} the session tab number
+  * @return {String} name of session tab surrounded by brackets, or empty string
+  */
+const sessionTabName = (tabNumber) => {
+  return getSetting(settings.NAMED_SESSION_TABS)[tabNumber]
+    ? '(' + getSetting(settings.NAMED_SESSION_TABS)[tabNumber] + ')'
+    : ''
+}
+
+/**
  * Sends a message to the web contents of the focused window.
  * @param {Object} focusedWindow the focusedWindow if any
  * @param {Array} message message and arguments to send
@@ -87,7 +98,7 @@ module.exports.newPrivateTabMenuItem = () => {
 
 module.exports.newPartitionedTabMenuItem = () => {
   const newPartitionedMenuItem = (partitionNumber) => ({
-    label: `${locale.translation('newSessionTab')} ${partitionNumber}`,
+    label: `${locale.translation('newSessionTab')} ${partitionNumber} ${sessionTabName(partitionNumber)}`,
     accelerator: 'CmdOrCtrl+Alt+' + partitionNumber,
     click: (item, focusedWindow) => {
       ensureAtLeastOneWindow({
