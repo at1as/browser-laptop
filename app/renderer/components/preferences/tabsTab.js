@@ -156,6 +156,18 @@ class TabsTab extends ImmutableComponent {
             />
           </SettingItem>
         </SettingsList>
+        <DefaultSectionTitle data-l10n-id='sessionTabs' />
+        <SettingsList>
+          <SettingDropdown>
+            {Object.keys(getSetting(settings.NAMED_SESSION_TABS, this.props.settings)).map((sessionTabNum) =>
+              <option
+                data-l10n-id={'sessionTab' + ' ' + sessionTabNum}
+                data-test-id={'sessionTab' + ' ' + sessionTabNum}
+                value={sessionTabNum}
+              />
+            )}
+          </SettingDropdown>
+        </SettingsList>
       </div>
     )
   }
